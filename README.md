@@ -1,5 +1,9 @@
 # Kafka/Web Socket Study
+<img width="785" alt="kafka-full-scenario" src="https://github.com/DongchannN/Chat-application-with-kafka-and-stomp/assets/96824025/4654b053-9a5b-4635-81de-a8d97afaf0d2">
 
+위의 전체 시나리오 중 `Server(Kafka Client)`에 해당하는 Application.
+
+- 클라이언트들의 메시지를 웹소켓 통신으로 받아 Kafka Application에 produce하며, Kafka Application으로 종합된 메시지들을 다시 consume해 연결된 클라이언트들에게 전송.
 ## Profile
 - dev profile(Default) : 개발 시 사용할 profile.
 - test profile : junit 테스트 시 사용할 profile. @ActiveProfiles("test")를 이용해 test 코드 실행 시 test profile을 사용할 수 있게 함.
