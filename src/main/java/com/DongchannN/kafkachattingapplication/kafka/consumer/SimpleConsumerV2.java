@@ -36,14 +36,6 @@ public class SimpleConsumerV2 {
         latch.countDown();
     }
 
-    public List<MessageDto.KafkaSavedMessage> getPayloads() {
-        return payloads;
-    }
-
-    public void resetLatch() {
-        latch = new CountDownLatch(1);
-    }
-
     @KafkaListener(topics = "dan-test-02"
             , groupId = "dan-201"
             , containerFactory = "kafkaListenerContainerFactory2")
@@ -54,5 +46,13 @@ public class SimpleConsumerV2 {
         template.convertAndSend("/topic/room/dan-test-02", new ObjectMapper().writeValueAsString(payload));
         log.info("SimpleConsumer :: receive : after send");
         latch.countDown();
+    }
+
+    public List<MessageDto.KafkaSavedMessage> getPayloads() {
+        return payloads;
+    }
+
+    public void resetLatch() {
+        latch = new CountDownLatch(1);
     }
 }
